@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://u6730kihv02l"]
+
+[ext_resource type="Script" uid="uid://b3ke6tew05g85" path="res://scripts/curved_pipe_path.gd" id="1_armpc"]
+[ext_resource type="Texture2D" uid="uid://b4aoh8ty7ai71" path="res://assets/pipeGreen_01.png" id="1_inrvr"]
+
+[node name="CurvedPipePath" type="Node2D"]
+script = ExtResource("1_armpc")
+
+[node name="EmptySprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_inrvr")
+
+[node name="P2Marker2D" type="Marker2D" parent="."]
+position = Vector2(56, -29)
+
+[node name="P1Marker2D" type="Marker2D" parent="."]
+position = Vector2(-27, -30)
+
+[node name="P0Marker2D" type="Marker2D" parent="."]
+position = Vector2(-30, 56)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg276hwggmtsw"]
+
+[ext_resource type="Script" uid="uid://bqn6mst0xrqu" path="res://scenes/curved_pipe_revealer_manager.gd" id="1_hiqwm"]
+[ext_resource type="Texture2D" uid="uid://b4aoh8ty7ai71" path="res://assets/pipeGreen_01.png" id="1_q2v3q"]
+[ext_resource type="Texture2D" uid="uid://cy8sn0exvus2e" path="res://assets/RightAngleWaterFull.png" id="1_ywugt"]
+[ext_resource type="Shader" uid="uid://2at8mntikh8h" path="res://shaders/curved_pipe_revealer_manager.gdshader" id="2_sxkds"]
+[ext_resource type="Script" uid="uid://c4t1ge2f3kwxd" path="res://scripts/mask_drawer.gd" id="4_ofou7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofou7"]
+shader = ExtResource("2_sxkds")
+
+[node name="CurvedPipeRevealerManager" type="Node2D"]
+script = ExtResource("1_hiqwm")
+
+[node name="MaskViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(160, 160)
+render_target_update_mode = 4
+
+[node name="MaskDrawer" type="Node2D" parent="MaskViewport"]
+script = ExtResource("4_ofou7")
+
+[node name="SpriteToRevealSprite2D" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_ofou7")
+texture = ExtResource("1_ywugt")
+
+[node name="EmptySprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q2v3q")

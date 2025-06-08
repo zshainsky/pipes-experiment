@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5grgqexn3fw4"]
+
+[ext_resource type="Script" uid="uid://cbkw0wnpaosyn" path="res://scenes/curved_pipe_slices.gd" id="1_5ls0t"]
+[ext_resource type="Texture2D" uid="uid://b4aoh8ty7ai71" path="res://assets/pipeGreen_01.png" id="1_mffcn"]
+[ext_resource type="Texture2D" uid="uid://c8hox6ns3h1p3" path="res://assets/RightAngleSpriteSheet01.png" id="1_wh0jx"]
+
+[sub_resource type="Animation" id="Animation_mffcn"]
+length = 1.2
+loop_mode = 2
+step = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FillMaskSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_wh0jx"]
+resource_name = "fill_pipe"
+length = 1.0001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FillMaskSprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(1056, 359, 172, 173), Rect2(1056, 359, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FillMaskSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(56, 34)]
+}
+
+[sub_resource type="Animation" id="Animation_5ls0t"]
+resource_name = "fill_pipe_2"
+length = 1.2
+step = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FillMaskSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8d3mu"]
+_data = {
+&"RESET": SubResource("Animation_mffcn"),
+&"fill_pipe": SubResource("Animation_wh0jx"),
+&"fill_pipe_2": SubResource("Animation_5ls0t")
+}
+
+[node name="CurvedPipeSlices" type="Node2D"]
+script = ExtResource("1_5ls0t")
+
+[node name="EmptySprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mffcn")
+region_rect = Rect2(1052, 1, 176, 175)
+
+[node name="FillMaskSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wh0jx")
+hframes = 12
+region_rect = Rect2(1056, 359, 172, 173)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8d3mu")
+}
+autoplay = "fill_pipe_2"
+speed_scale = 0.5

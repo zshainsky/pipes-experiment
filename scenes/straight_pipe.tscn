@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://02qw6162oep7"]
+
+[ext_resource type="Texture2D" uid="uid://84dl112gnlqb" path="res://assets/spritesheet_pipes.png" id="1_bepn3"]
+[ext_resource type="Script" uid="uid://cwkhydb8fjynk" path="res://scripts/straight_pipe.gd" id="1_ijg80"]
+
+[sub_resource type="Animation" id="Animation_78010"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FillMaskSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FillMaskSprite2D:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(1735, 593, 53, 169)]
+}
+
+[sub_resource type="Animation" id="Animation_bepn3"]
+resource_name = "fill_pipe"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FillMaskSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6001, 0.7001, 0.8001, 0.9001, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5.5), Vector2(0, -11), Vector2(0, -16.5), Vector2(0, -21), Vector2(0, -26.5), Vector2(0, -31), Vector2(0, -36.5), Vector2(0, -41), Vector2(0, -46.5), Vector2(0, -51), Vector2(0, -56.5), Vector2(0, -61), Vector2(0, -66.5), Vector2(0, -71), Vector2(0, -76.5), Vector2(0, -81), Vector2(0, -84.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FillMaskSprite2D:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6001, 0.7001, 0.8001, 0.9001, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(1735, 593, 53, 169), Rect2(1735, 593, 53, 159), Rect2(1735, 593, 53, 149), Rect2(1735, 593, 53, 139), Rect2(1735, 593, 53, 129), Rect2(1735, 593, 53, 119), Rect2(1735, 593, 53, 109), Rect2(1735, 593, 53, 99), Rect2(1735, 593, 53, 89), Rect2(1735, 593, 53, 79), Rect2(1735, 593, 53, 69), Rect2(1735, 593, 53, 59), Rect2(1735, 593, 53, 49), Rect2(1735, 593, 53, 39), Rect2(1735, 593, 53, 29), Rect2(1735, 593, 53, 19), Rect2(1735, 593, 53, 9), Rect2(1735, 593, 53, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_arayy"]
+resource_name = "fill_pipe_2"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FillMaskSprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(1735, 593, 53, 169), Rect2(1735, 593, 53, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FillMaskSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3.55271e-15, -87)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arayy"]
+_data = {
+&"RESET": SubResource("Animation_78010"),
+&"fill_pipe": SubResource("Animation_bepn3"),
+&"fill_pipe_2": SubResource("Animation_arayy")
+}
+
+[node name="StraightPipe" type="Node2D"]
+script = ExtResource("1_ijg80")
+
+[node name="EmptySprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bepn3")
+region_enabled = true
+region_rect = Rect2(1584, 562, 114, 234)
+
+[node name="FillMaskSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.018, 1.009)
+texture = ExtResource("1_bepn3")
+region_enabled = true
+region_rect = Rect2(1735, 593, 53, 169)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_arayy")
+}
+autoplay = "fill_pipe_2"
+speed_scale = 0.5
