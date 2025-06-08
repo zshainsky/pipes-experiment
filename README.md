@@ -9,6 +9,8 @@ Godot experiments for a new game called Pipes
 2. Draw polyline of all the points along the curve of the pipe
 3. Use a Shader to reveal an invisible texture along the points in the curve of the pipe
 
-https://github.com/user-attachments/assets/d222788c-739d-4b47-8e02-c0db8e46e38e
+
+https://github.com/user-attachments/assets/1247f6d7-203e-444d-8b7e-4327fb27e9fb
+
 
 
