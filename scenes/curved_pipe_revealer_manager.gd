@@ -40,7 +40,7 @@ func _process(delta: float):
 	var r: Vector2 = q0.lerp(q1, t)
 
 	# Add the point to our path if it has moved then redraw all points
-	if traced_points.is_empty() or !traced_points.has(r):
+	if traced_points.is_empty() or traced_points[-1] != r:
 		traced_points.append(r)
 		mask_drawer.points_to_draw = traced_points
 		mask_drawer.queue_redraw()
