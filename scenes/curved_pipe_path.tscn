@@ -3,18 +3,23 @@
 [ext_resource type="Script" uid="uid://b3ke6tew05g85" path="res://scripts/curved_pipe_path.gd" id="1_armpc"]
 [ext_resource type="Texture2D" uid="uid://b4aoh8ty7ai71" path="res://assets/pipeGreen_01.png" id="1_inrvr"]
 
-[node name="CurvedPipePath" type="Node2D"]
-script = ExtResource("1_armpc")
-
-[node name="EmptySprite2D" type="Sprite2D" parent="."]
-z_index = -1
+[node name="CurvedPipePath" type="Sprite2D"]
+clip_children = 2
 texture = ExtResource("1_inrvr")
 
-[node name="P2Marker2D" type="Marker2D" parent="."]
+[node name="WaterDrawer" type="Node2D" parent="."]
+script = ExtResource("1_armpc")
+
+[node name="P2Marker2D" type="Marker2D" parent="WaterDrawer"]
 position = Vector2(56, -29)
 
-[node name="P1Marker2D" type="Marker2D" parent="."]
+[node name="P1Marker2D" type="Marker2D" parent="WaterDrawer"]
 position = Vector2(-27, -30)
 
-[node name="P0Marker2D" type="Marker2D" parent="."]
+[node name="P0Marker2D" type="Marker2D" parent="WaterDrawer"]
 position = Vector2(-30, 56)
+
+[node name="Line2D" type="Line2D" parent="WaterDrawer"]
+texture_repeat = 2
+width = 60.0
+default_color = Color(0.301961, 0.647059, 0.862745, 0.764706)
